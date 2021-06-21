@@ -1,0 +1,396 @@
+/*
+Reset & HTML
+Media Queries
+*/
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%; /* 10px */
+}
+
+@media only screen and (max-width: 75em) {
+	html {
+		font-size: 56.25%;
+	}
+}
+
+@media only screen and (max-width: 56.25em) {
+	html {
+		font-size: 50%;
+	}
+}
+
+@media only screen and (min-width: 112.5em) {
+	html {
+		font-size: 75%;
+	}
+}
+
+/*
+Page
+*/
+
+body {
+	box-sizing: border-box;
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	line-height: 1.7;
+	word-spacing: 0.2rem;
+	letter-spacing: 0.1rem;
+	color: #ebd71c;
+	background-image: url(../img/stars.jpeg);
+}
+
+/*
+Header
+*/
+
+.header {
+	height: 100vh;
+	background: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.05),
+			rgba(0, 0, 0, 0.2)
+		),
+		top / cover url(../img/hero.jpg);
+	position: relative;
+}
+
+.icon-box {
+	position: relative;
+	top: 4rem;
+	left: 4rem;
+	width: 3.5rem;
+}
+
+.icon {
+	width: 100%;
+}
+
+.header-box {
+	width: 55rem;
+	position: relative;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	text-align: center;
+}
+
+.headings {
+	backface-visibility: hidden;
+}
+
+.headings-main {
+	width: 100%;
+	display: block;
+	padding-right: 1rem;
+	margin-bottom: 2rem;
+
+	animation: moveInLeft 1.3s ease-out;
+}
+
+.headings-sub {
+	font-family: "Russo One", sans-serif;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.8rem;
+	animation: moveInRight 1.3s ease-out;
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-10rem);
+	}
+
+	80% {
+		transform: translateX(1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(10rem);
+	}
+
+	80% {
+		transform: translateX(-1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/*
+Main Content
+*/
+
+main {
+	padding-top: 6rem;
+	position: relative;
+}
+
+/*
+Message Board
+*/
+
+.message {
+	width: 75%;
+	margin: 0 auto;
+	box-shadow: 0 3rem 6rem rgba(165, 42, 42, 0.2);
+	background-color: rgba(0, 100, 0, 0.5);
+	border-radius: 3px;
+	padding: 6rem;
+	padding-left: 9rem;
+	font-size: 1.6rem;
+	transform: skewX(-12deg);
+	z-index: 1;
+}
+
+@media only screen and (max-width: 56.25em) {
+	.message {
+		width: 100%;
+		padding: 4rem;
+		padding-left: 7rem;
+	}
+}
+
+@media only screen and (max-width: 37.5em) {
+	.message {
+		transform: skewX(0);
+	}
+}
+
+.message-pic {
+	width: 15rem;
+	height: 15rem;
+	float: left;
+	transform: translateX(-3rem) skewX(12deg);
+	position: relative;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+	.message-pic {
+		-webkit-clip-path: circle(50% at 50% 50%);
+		clip-path: circle(50% at 50% 50%);
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+		border-radius: none;
+	}
+}
+
+@media only screen and (max-width: 37.5em) {
+	.message-pic {
+		transform: translateX(-3rem) skewX(0);
+	}
+}
+
+.message-img {
+	height: 100%;
+	transform: translateX(-4rem) scale(1.4);
+	backface-visibility: hidden;
+	transition: all 0.5s;
+}
+
+.message-txt {
+	transform: skewX(12deg);
+}
+
+@media only screen and (max-width: 37.5em) {
+	.message-txt {
+		transform: skewX(0);
+	}
+}
+
+.message-capt {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 20%);
+	text-transform: uppercase;
+	font-size: 1.6rem;
+	text-align: center;
+	opacity: 0;
+	transition: all 0.5s;
+	backface-visibility: hidden;
+}
+
+.message:hover .message-capt {
+	opacity: 1;
+	transform: translate(-50%, -50%);
+}
+
+.message:hover .message-img {
+	transform: translateX(-4rem) scale(1);
+	filter: blur(3px) brightness(80%);
+}
+
+.msg-select {
+	text-align: center;
+	padding-top: 2rem;
+}
+
+.label {
+	display: inline;
+}
+
+#characters {
+	font-size: 2rem;
+	width: 27rem;
+	margin-left: 2rem;
+	color: white;
+	background-color: rgba(144, 238, 144, 0.15);
+}
+
+/*
+Content Display
+*/
+
+.display {
+	font-size: 1.6rem;
+	min-height: 100vh;
+	padding-top: 6rem;
+}
+
+.display ul {
+	list-style: none;
+}
+
+.background {
+	width: 75%;
+	left: 12.5%;
+	margin-top: -6rem;
+	min-height: 100vh;
+	z-index: -1;
+	position: absolute;
+	background: right / contain no-repeat url(../img/death_star.jpg);
+}
+
+#message {
+	min-height: 25rem;
+}
+
+.profile {
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 3rem;
+}
+
+/*
+Button to Top
+*/
+
+.btn-box {
+	width: 26rem;
+	padding: 3rem;
+	margin: 0 auto;
+}
+
+.btn:link,
+.btn:visited {
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1.5rem 4rem;
+	display: inline-block;
+	border-radius: 10rem;
+	transition: all 0.2s;
+	position: relative;
+	font-size: 1.6rem;
+	color: #ebd71c;
+	background-color: rgba(0, 100, 0, 0.5);
+}
+
+.btn:hover {
+	transform: translateY(-0.3rem);
+	box-shadow: 0 1rem 2rem rgba(165, 42, 42, 0.2);
+}
+
+.btn:active {
+	transform: translate(-0.1rem);
+	box-shadow: 0 0.5rem 1rem rgba(165, 42, 42, 0.2);
+}
+
+.btn::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 10rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all 0.4s;
+	background-color: rgba(0, 100, 0, 0.5);
+}
+
+.btn:hover::after {
+	transform: scaleX(1.4) scaleY(1.6);
+	opacity: 0;
+}
+
+.btn--animated {
+	animation: moveInBottom 0.5s ease-out 0.75s;
+	animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/*
+Footer
+*/
+
+.footer {
+	min-height: 20rem;
+	padding-top: 2rem;
+	background-color: rgba(0, 100, 0, 0.5);
+	position: relative;
+}
+
+.copyright-box {
+	position: absolute;
+	top: 75%;
+	left: 2rem;
+}
+
+.copyright {
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+.footer-logo {
+	width: 30rem;
+	margin: 0 auto;
+	position: relative;
+}
+
+.logo {
+	width: 100%;
+}

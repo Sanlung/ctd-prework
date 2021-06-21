@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Chung Kao" />
+		<title>Star Wars Character Profiles and Films</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="img/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="img/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="img/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="img/site.webmanifest" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<header class="header">
+			<div class="icon-box">
+				<a href="#characters"><img class="icon" src="img/icon.png" alt="Site icon" /></a>
+			</div>
+
+			<div class="header-box">
+				<div class="headings">
+					<img class="headings-main" src="img/logo_horiz.png" alt="Star Wars" />
+
+					<p class="headings-sub">Character Profiles & Films</p>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section>
+				<div class="message">
+					<figure class="message-pic">
+						<img src="img/yoda.jpg" alt="Jedi Yoda" class="message-img" />
+						<figcaption class="message-capt">Read Me</figcaption>
+					</figure>
+					<div class="message-txt">
+						<h3>How to get Star Wars character information</h3>
+						<p>
+							Begin by clicking the down arrow in the selection box below to seclect a character whose info you want to see. The selected character's Star Wars profile
+							will be displayed, along with links to all the episodes which featured the chcaracter. You can click on the link to any episode to see information about the film and, once in episode view, click on the link to any character whom the episode also featured. You can also continue to select names from the selection box to see their profiles.
+						</p>
+						<div class="msg-select">
+							<label for="characters"><h3 class="label">Select a character</h3><label>
+							<select name="characters" id="characters"></select>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="display">
+				<div class="background"></div>
+				<div class="message" id="message">
+					<figure class="message-pic">
+						<img src="img/darth.jpg" alt="Darth Vader" class="message-img" />
+						<figcaption class="message-capt">Open Crawl</figcaption>
+					</figure>
+					<div class="message-txt">
+						<h3 class="episode">The episode title will be displayed here</h3>
+						<p class="open-crawl"></p>
+					</div>
+				</div>
+				<div class="profile"></div>
+			</section>
+			<div class="btn-box">
+				<a href="#" class="btn btn--animated">Back to top</a>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="copyright-box">
+				<span class="copyright">&copy; Chung Kao 2021</span>
+			</div>
+			<div class="footer-logo">
+				<img class="logo" src="img/logo_vert.png" alt="Star Wars logo" />
+			</div>
+		</footer>
+
+		<script src="app.js"></script>
+	</body>
+</html>
