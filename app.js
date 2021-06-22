@@ -1,6 +1,6 @@
 const select = document.getElementById("characters");
-const episode = document.querySelector(".episode");
-const openCrawl = document.querySelector(".open-crawl");
+const title = document.querySelector(".title");
+const prologue = document.querySelector(".prologue");
 const profile = document.querySelector(".profile");
 
 // ------------------------------------------
@@ -69,8 +69,10 @@ function makeListItems(arr, info) {
 function fetchCharacterInfo(url) {
 	const characterURL = typeof url === "string" ? url : select.value;
 	fetchData(`${characterURL}`).then((data) => {
+		let name = data.name;
+		let message = `The appearance, physique and other IDs of ${data.name}, along with links to information on the character's species, the vehicles and starships the character has operated or piloted, and the Star Wars films that feature the character, are as follows.`;
 		let html = `
-			<h3>${data.name}</h3 >
+			<h3>${data.name}</h3>
 			<ol>
 				<li>Appearance
 					<ul>
@@ -102,22 +104,23 @@ function fetchCharacterInfo(url) {
 				<li>Starships Piloted
 					<ul>${makeListItems(data.starships)}</ul>
 				</li>
-				<li>Episodes Starred
+				<li>Episodes Appeared in
 					<ul>${makeListItems(data.films, "film")}</ul>
 				</li>
 			</ol>
 			`;
-		episode.innerHTML = "The episode title will be displayed here";
-		openCrawl.innerHTML = "";
+		title.innerHTML = name;
+		prologue.innerHTML = message;
 		profile.innerHTML = html;
 	});
 }
 
 function fetchFilmInfo(url) {
 	fetchData(url).then((data) => {
-		let title = `${data.title}`;
+		let name = data.title;
 		let crawl = `${data.opening_crawl.replaceAll(/(\n\n)/g, " ")}`;
 		let html = `
+			<h3>${data.title}</h3>
 			<ol>
 				<li>Directed/Produced By
 					<ul>
@@ -132,19 +135,19 @@ function fetchFilmInfo(url) {
 				<li>Planets in Film
 					<ul>${makeListItems(data.planets)}</ul>
 				</li>
-				<li>Species Appeared
+				<li>Species Appearing
 					<ul>${makeListItems(data.species)}</ul>
 				</li>
-				<li>Vehicles Appeared
+				<li>Vehicles Appearing
 					<ul>${makeListItems(data.vehicles)}</ul>
 				</li>
-				<li>Starships Appeared
+				<li>Starships Appearing
 					<ul>${makeListItems(data.starships)}</ul>
 				</li>
 			</ol>
 			`;
-		episode.innerHTML = title;
-		openCrawl.innerHTML = crawl;
+		title.innerHTML = name;
+		prologue.innerHTML = crawl;
 		profile.innerHTML = html;
 	});
 }
