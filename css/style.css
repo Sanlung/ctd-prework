@@ -105,7 +105,7 @@ Header
 	font-family: "Russo One", sans-serif;
 	font-size: 2rem;
 	text-transform: uppercase;
-	letter-spacing: 0.8rem;
+	letter-spacing: 0.81rem;
 	animation: moveInRight 1.3s ease-out;
 }
 
@@ -151,8 +151,12 @@ main {
 }
 
 /*
-Message Board
+Message Boards
 */
+
+.message-box {
+	padding: 6rem 0;
+}
 
 .message {
 	width: 75%;
@@ -247,6 +251,14 @@ Message Board
 	filter: blur(3px) brightness(80%);
 }
 
+#message {
+	min-height: 25rem;
+}
+
+/*
+Selection Box
+*/
+
 .msg-select {
 	text-align: center;
 	padding-top: 2rem;
@@ -270,24 +282,31 @@ Content Display
 
 .display {
 	font-size: 1.6rem;
-	min-height: 100vh;
-	padding-top: 6rem;
-}
-
-.display ul {
-	list-style: none;
-}
-
-#message {
-	min-height: 25rem;
 }
 
 .profile {
 	width: 75%;
-	min-height: 80vh;
+	min-height: 75vh;
 	margin: 0 auto;
-	padding: 3rem;
+	padding: 6rem 3rem;
 	background: right / contain no-repeat url(../img/death_star.png);
+}
+
+.profile ul {
+	list-style: none;
+}
+
+.flex-container {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.no-flex {
+	width: 100%;
+}
+
+.flex-items {
+	margin: 3rem 3rem 0 0;
 }
 
 /*

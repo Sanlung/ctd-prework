@@ -57,8 +57,8 @@ function makeListItems(arr, info) {
 	} else if (info) {
 		arr.forEach((el) =>
 			info === "film"
-				? (listItems += `<li onclick="fetchFilmInfo(this.innerText)">${el}</li>`)
-				: (listItems += `<li onclick="fetchCharacterInfo(this.innerText)">${el}</li>`)
+				? (listItems += `<li onclick="fetchFilmInfo(this.textContent)">${el}</li>`)
+				: (listItems += `<li onclick="fetchCharacterInfo(this.textContent)">${el}</li>`)
 		);
 	} else {
 		arr.forEach((el) => (listItems += `<li>${el}</li>`));
@@ -109,8 +109,8 @@ function fetchCharacterInfo(url) {
 				</li>
 			</ol>
 			`;
-		title.innerHTML = name;
-		prologue.innerHTML = message;
+		title.textContent = name;
+		prologue.textContent = message;
 		profile.innerHTML = html;
 	});
 }
@@ -121,33 +121,33 @@ function fetchFilmInfo(url) {
 		let crawl = `${data.opening_crawl.replaceAll(/(\n\n)/g, " ")}`;
 		let html = `
 			<h3>${data.title}</h3>
-			<ol>
-				<li>Directed/Produced By
+			<ol class="flex-container">
+				<li class="no-flex">Directed/Produced By
 					<ul>
 						<li>Director: ${data.director}</li>
 						<li>Producer: ${data.producer}</li>
 					</ul>
 				</li>
-				<li>Profile URL: ${data.url}</li>
-				<li>Characters in Film
-					<ul>${makeListItems(data.characters, "people")}</ul>
+				<li class="no-flex">Profile URL: ${data.url}</li>
+				<li class="flex-items">Characters in Film
+					<ul>${makeListItems(data.characters, "person")}</ul>
 				</li>
-				<li>Planets in Film
+				<li class="flex-items">Planets in Film
 					<ul>${makeListItems(data.planets)}</ul>
 				</li>
-				<li>Species Appearing
+				<li class="flex-items">Species Appearing
 					<ul>${makeListItems(data.species)}</ul>
 				</li>
-				<li>Vehicles Appearing
+				<li class="flex-items">Vehicles Appearing
 					<ul>${makeListItems(data.vehicles)}</ul>
 				</li>
-				<li>Starships Appearing
+				<li class="flex-items">Starships Appearing
 					<ul>${makeListItems(data.starships)}</ul>
 				</li>
 			</ol>
 			`;
-		title.innerHTML = name;
-		prologue.innerHTML = crawl;
+		title.textContent = name;
+		prologue.textContent = crawl;
 		profile.innerHTML = html;
 	});
 }
