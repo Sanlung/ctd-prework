@@ -18,10 +18,16 @@ This project dose not require the installation of NPM or a server. It uses the F
 
 #### Installation
 
-1. Clone the repo.
+1. Clone the repo using HTTPS or SSH:
 
 ```
-git clone git@github.com:Sanlung/ctd-prewrok.git
+git clone https://github.com/Sanlung/ctd-prework.git
+```
+
+or
+
+```
+git clone git@github.com:Sanlung/ctd-prework.git
 ```
 
 2. Load the index.html file in your browser.
@@ -33,4 +39,5 @@ The web page has a simple user interface that consists of a selection box and cl
 ### Contact
 
 Author: Chung Kao
-Project Link: https://github.com/Sanlung/ctd-prewrok
+
+Project Link: https://github.com/Sanlung/ctd-prework
