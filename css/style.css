@@ -3,6 +3,7 @@ Reset & HTML
 Media Queries
 */
 
+*,
 ::after,
 ::before {
 	margin: 0;
